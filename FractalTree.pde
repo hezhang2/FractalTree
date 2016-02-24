@@ -4,20 +4,20 @@ private int smallestBranch = 10;
 private double branchAngle = .4;  
 public void setup() 
 {   
-	size(640,480);    
-	noLoop(); 
+	size(640,480);
 } 
 public void draw() 
 {   
-	background(0);   
-	stroke(0,255,0);   
-	line(320,480,320,380);   
-	drawBranches(320,380,100,3*Math.PI/2);  //will add later 
+	background(#60AB86);   
+	stroke(#613E0C);   
+	line(320,480,320,380);
+	branchAngle=mouseY/(480/.5);   
+	drawBranches(320,380,100,3*Math.PI/2); 
 } 
 public void drawBranches(int x,int y, double branchLength, double angle){ 
 	double angle1, angle2;
-	angle1=angle+branchAngle;
-	angle2=angle-branchAngle;
+	angle1=angle+branchAngle-(mouseX-320)/(320/.3);
+	angle2=angle-branchAngle-(mouseX-320)/(320/.3);
 	branchLength*=fractionLength;
 	int endX1 = (int)(branchLength*Math.cos(angle1) + x);
 	int endY1 = (int)(branchLength*Math.sin(angle1) + y);
